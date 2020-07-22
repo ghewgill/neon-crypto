@@ -360,7 +360,7 @@ if sys.platform == "win32":
 else:
     conf = Configure(env)
     if not conf.CheckLibWithHeader("ressl", "crypto.h", "C++"):
-        libssl = sslenv.Command(["lib/libssl.a", "lib/libcrypto.a"], "libressl-2.2.4/configure", "cd lib/crypto/libressl-2.2.4 && ./configure --with-pic --prefix={} && make install".format(os.path.abspath(".")))
+        libssl = sslenv.Command(["lib/libssl.a", "lib/libcrypto.a"], "libressl-2.2.4/configure", "cd libressl-2.2.4 && ./configure --with-pic --prefix={} && make install".format(os.path.abspath(".")))
         env.Append(CPPPATH=["include"])
     conf.Finish()
 
